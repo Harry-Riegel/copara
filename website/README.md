@@ -1,6 +1,6 @@
 # copara.co — Website
 
-Die Website des ruhigen Sorgerechts-Kalenders für getrennte Eltern.
+Die Website von Copara — dem gemeinsamen Kalender für getrennte Eltern.
 Umsetzung des Design-Mockups „Still & Stark" aus dem Copara-Design-System
 (`design/project/ui_kits/copara-app/Concept.html` + `Rechtliches.html`) als
 produktionsreife, statische Website.

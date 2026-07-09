@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "copara.co — die Website des ruhigen Sorgerechts-Kalenders für getrennte Eltern.",
+  "description": "copara.co — die Website von Copara, dem gemeinsamen Kalender für getrennte Eltern.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
