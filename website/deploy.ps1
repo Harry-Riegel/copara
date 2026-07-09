@@ -9,16 +9,16 @@ $webroot = '/var/www/copara.co'
 
 Set-Location $PSScriptRoot
 
-Write-Host '1/3  Build …'
+Write-Host '1/3  Build ...'
 npm run build
-if ($LASTEXITCODE -ne 0) { throw 'Build fehlgeschlagen — Deploy abgebrochen.' }
+if ($LASTEXITCODE -ne 0) { throw 'Build fehlgeschlagen - Deploy abgebrochen.' }
 
-Write-Host '2/3  Hochladen …'
+Write-Host '2/3  Hochladen ...'
 ssh -i $key -o BatchMode=yes $server "rm -rf $webroot.new && mkdir -p $webroot.new"
 scp -i $key -q -r dist/* "${server}:$webroot.new/"
 
-Write-Host '3/3  Umschalten …'
+Write-Host '3/3  Umschalten ...'
 ssh -i $key -o BatchMode=yes $server "rm -rf $webroot.old && mv $webroot $webroot.old && mv $webroot.new $webroot && rm -rf $webroot.old"
 
 $status = curl.exe -s -o NUL -w '%{http_code}' https://copara.co/
-Write-Host "Fertig — https://copara.co antwortet mit HTTP $status"
+Write-Host "Fertig - https://copara.co antwortet mit HTTP $status"
