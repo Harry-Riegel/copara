@@ -50,8 +50,21 @@ npm run format     # Prettier
 ## Deployment
 
 `npm run build` erzeugt reines statisches HTML/CSS/JS in `dist/` — lauffähig
-auf jedem Static-Host (Cloudflare Pages, Netlify, Vercel, …). `404.html`,
-`robots.txt` und `sitemap.xml` liegen bei. Canonical-Domain: `https://copara.co`.
+auf jedem Static-Host. `404.html`, `robots.txt` und `sitemap.xml` liegen bei.
+Canonical-Domain: `https://copara.co`.
+
+**Live-Setup:** Hetzner CX23 (`178.104.207.31`, Ubuntu 26.04) mit nginx +
+Let's-Encrypt (Auto-Renewal via certbot). Webroot `/var/www/copara.co`,
+nginx-Konfiguration `/etc/nginx/sites-available/copara.co` (Cache-Header für
+`/assets` + `/fonts`, eigene 404, HSTS, HTTP→HTTPS-Redirect). SSH nur per Key
+(`~/.ssh/copara_deploy`), Passwort-Login ist deaktiviert, ufw erlaubt nur
+OpenSSH + nginx.
+
+Neues Release deployen:
+
+```
+powershell -ExecutionPolicy Bypass -File deploy.ps1
+```
 
 ## Offene Punkte
 
