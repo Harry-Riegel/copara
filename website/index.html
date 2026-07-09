@@ -490,8 +490,9 @@
         </div>
       </section>
 
-      <!-- Premium: sechs Szenen-Karten — jede zeigt oben einen App-Moment
-           (Mini-Pille), darunter das Feature, das ihn möglich macht. -->
+      <!-- Premium: sechs Karten — jede zeigt oben einen echten App-Moment
+           (warme Benachrichtigungs-Karte mit Mensch, Uhrzeit, wörtlicher Rede),
+           darunter das Feature, das ihn möglich macht. -->
       <section id="premium" class="ink-sec">
         <div class="wrap rise">
           <div class="prem" data-scene>
@@ -502,47 +503,101 @@
             </h2>
             <div class="grid2">
               <div class="prem-card">
-                <span class="prem-chip"
-                  ><i class="pc-dot pc-dot--sand"></i>Oma sieht: nur Emmas Tage</span
-                >
+                <div class="moment">
+                  <span class="moment-avatar" style="--av-bg: #f2ede2; --av-fg: #6b675c">OA</span>
+                  <span class="moment-text">
+                    <small>Oma Anna <em>· gerade beigetreten</em></small>
+                    <span>Sieht nur: Emmas Termine</span>
+                  </span>
+                </div>
                 <h3>Oma, Opa &amp; Au-pair einladen</h3>
                 <p>
                   Sie sehen nur die Termine ihres Kindes — ohne in euren Nachrichten mitzulesen.
                 </p>
               </div>
               <div class="prem-card">
-                <span class="prem-chip"><i class="pc-dot pc-dot--sage"></i>Oma übernimmt.</span>
+                <div class="moment">
+                  <span class="moment-avatar" style="--av-bg: #f2ede2; --av-fg: #6b675c">OA</span>
+                  <span class="moment-text">
+                    <small>Oma Anna <em>· 13:58</em></small>
+                    <span>„Ich übernehme Freitag.“</span>
+                  </span>
+                  <span class="moment-check">✓</span>
+                </div>
                 <h3>Notfall-Helfer, wenn keiner kann</h3>
                 <p>
                   Antwortet der andere Elternteil nicht, fragt Copara automatisch Oma &amp; Opa.
                 </p>
               </div>
               <div class="prem-card">
-                <span class="prem-chip"
-                  ><i class="pc-dot pc-dot--apri"></i>Wer holt Mia am Freitag?</span
-                >
+                <div class="moment moment--col">
+                  <span class="moment-q">Lisa fragt alle: „Wer holt Mia am Freitag?“</span>
+                  <span class="moment-inner">
+                    <span class="moment-avatar" style="--av-bg: #f2ede2; --av-fg: #6b675c">OA</span>
+                    <span class="moment-text">
+                      <small>Oma Anna <em>· zuerst zugesagt</em></small>
+                      <span>„Ich!“</span>
+                    </span>
+                    <span class="moment-check">✓</span>
+                  </span>
+                </div>
                 <h3>Eine Frage an alle gleichzeitig</h3>
                 <p>Die Erste, die zusagt, übernimmt. Kein Herumtelefonieren.</p>
               </div>
               <div class="prem-card">
-                <span class="prem-chip"
-                  ><i class="pc-dot pc-dot--wald"></i><i class="pc-dot pc-dot--apri"></i
-                  ><i class="pc-dot pc-dot--schiefer"></i>Mia · Felix · Emma</span
-                >
+                <div class="moment moment--col">
+                  <span class="moment-kid"
+                    ><i class="pc-dot pc-dot--apri"></i><strong>Mia</strong> · bei Markus</span
+                  >
+                  <span class="moment-kid"
+                    ><i class="pc-dot pc-dot--apri"></i><strong>Felix</strong> · bei Markus</span
+                  >
+                  <span class="moment-kid"
+                    ><i class="pc-dot pc-dot--schiefer"></i><strong>Emma</strong> · bei Tom</span
+                  >
+                </div>
                 <h3>Mehrere Kinder getrennt planen</h3>
                 <p>Eigener Kalender je Kind — auch bei verschiedenen Vätern.</p>
               </div>
               <div class="prem-card">
-                <span class="prem-chip"
-                  ><i class="pc-dot pc-dot--gold"></i>Morgen Kinderarzt · Gesundheitskarte</span
-                >
+                <div class="moment">
+                  <span class="moment-avatar moment-avatar--mark">
+                    <svg viewBox="0 0 40 24" aria-hidden="true">
+                      <circle
+                        cx="15"
+                        cy="12"
+                        r="8.5"
+                        fill="none"
+                        stroke="#2E4B3F"
+                        stroke-width="2.4"
+                      />
+                      <circle
+                        cx="25"
+                        cy="12"
+                        r="8.5"
+                        fill="none"
+                        stroke="#C67E5C"
+                        stroke-width="2.4"
+                      />
+                      <circle cx="20" cy="12" r="2.6" fill="#C67E5C" />
+                    </svg>
+                  </span>
+                  <span class="moment-text">
+                    <small>Copara <em>· morgen 8:00</em></small>
+                    <span>Kinderarzt Mia — Gesundheitskarte?</span>
+                  </span>
+                </div>
                 <h3>Erinnerungen, die mitdenken</h3>
                 <p>Gesundheitskarte vor dem Arzt, Reise-Erlaubnis vor Auslandsreisen.</p>
               </div>
               <div class="prem-card">
-                <span class="prem-chip"
-                  ><i class="pc-dot pc-dot--sand"></i>Februar 2026 · als PDF</span
-                >
+                <div class="moment">
+                  <span class="moment-avatar moment-avatar--file">PDF</span>
+                  <span class="moment-text">
+                    <small>Monatsübersicht <em>· erstellt</em></small>
+                    <span class="moment-mono">Februar-2026.pdf</span>
+                  </span>
+                </div>
                 <h3>Monatsübersicht als PDF</h3>
                 <p>Wer hatte die Kinder wann — für Anwältin, Jugendamt oder Mediation.</p>
               </div>
