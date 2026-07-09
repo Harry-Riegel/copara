@@ -1,0 +1,17 @@
+/* Copara shadow + motion tokens — „Warm Sand & Wald".
+   Schatten warm getönt (nie Schwarz), Motion langsam und beruhigend — keine Bounces, keine Loops. */
+
+:root {
+  --shadow-card: 0 1px 2px rgba(74, 58, 33, 0.04), 0 8px 28px rgba(74, 58, 33, 0.07);
+  --shadow-sheet: 0 16px 48px rgba(50, 40, 20, 0.18);
+
+  --transition-default: 200ms cubic-bezier(0.32, 0.72, 0, 1); /* @kind other */
+  --transition-sheet: 320ms cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+
+  --ease-default: cubic-bezier(0.32, 0.72, 0, 1); /* @kind other */
+  --ease-sheet: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+
+  /* Interaktions-Zustände */
+  --opacity-pressed: 0.8; /* @kind other */
+  --opacity-disabled: 0.4; /* @kind other */
+}

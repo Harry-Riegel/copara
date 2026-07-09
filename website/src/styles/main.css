@@ -1,0 +1,11 @@
+/* Copara Website — Style-Einstieg.
+   Reihenfolge: Fonts → Design-System-Tokens (unverändert aus dem Handoff) → Site-Styles. */
+
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/status-ampel.css';
+@import './tokens/personen.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';
+@import './site.css';

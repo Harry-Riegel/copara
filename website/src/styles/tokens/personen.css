@@ -1,0 +1,14 @@
+/* Copara — Personen-Farben (Patchwork, Runde 6).
+   Eltern gelten PRO KIND: Wald = Elternteil A (du) · Aprikose = Elternteil B · Schiefer = Elternteil C.
+   Schiefer ist im Codebase verankert (Slate-Blau war dort Elternteil B, vor dem Redesign) —
+   keine erfundene Farbe. Avatar-Ton „schiefer" ist die DS-Erweiterung. Dritte bleiben neutral Sand. */
+
+:root {
+  --person-c-100: #e7edf3;
+  --person-c-500: #6f8196;
+  --person-c-700: #46586c;
+
+  /* Aliase, symmetrisch zu parent-a/b */
+  --parent-c: var(--person-c-700);
+  --parent-c-soft: var(--person-c-100);
+}

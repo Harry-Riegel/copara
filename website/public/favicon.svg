@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Copara">
+  <rect width="64" height="64" rx="15" fill="#14211B"></rect>
+  <mask id="behind">
+    <rect width="64" height="64" fill="#fff"></rect>
+    <circle cx="38.5" cy="32" r="15.5" fill="#000"></circle>
+  </mask>
+  
+  <circle cx="25.5" cy="32" r="13" fill="none" stroke="#F4EFE6" stroke-width="3.4" mask="url(#behind)"></circle>
+  <circle cx="38.5" cy="32" r="13" fill="none" stroke="#E8A87C" stroke-width="3.4"></circle>
+  <circle cx="32" cy="32" r="3.5" fill="#E8A87C"></circle>
+</svg>

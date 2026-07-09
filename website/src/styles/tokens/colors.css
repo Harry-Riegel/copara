@@ -1,0 +1,79 @@
+/* Copara color tokens — „Warm Sand & Wald" (Redesign 2026).
+   Wald trägt (Primär, Elternteil A), Aprikose wärmt (Elternteil B, Akzent),
+   Sand ist die Bühne. Regel bleibt: niemals Rot — Fehler sind Clay.
+   Status-Ampel (status-ampel.css) und Personen-Farben (personen.css) erweitern
+   diese Palette und werden aus styles.css nach dieser Datei importiert. */
+
+:root {
+  /* Wald — Primär / Elternteil A */
+  --wald-100: #dfefe6;
+  --wald-300: #8fae9d;
+  --wald-500: #3e6553;
+  --wald-700: #2e4b3f;
+  --wald-900: #1f332b;
+
+  /* Aprikose — Elternteil B / warmer Akzent */
+  --apricot-100: #f4e2d5;
+  --apricot-300: #dda98c;
+  --apricot-500: #c67e5c;
+  --apricot-700: #8a4e33;
+
+  /* Sand — Oberflächen (hell & luftig, Wärme kommt aus den Akzenten) */
+  --sand-0: #ffffff; /* Karten */
+  --sand-50: #faf8f3; /* Screens */
+  --sand-100: #f2ede2; /* Wells, Sekundär-Buttons */
+  --sand-200: #eae4d8; /* Hairlines */
+
+  /* Ink — warmes Text-Trio */
+  --ink-900: #2a2721;
+  --ink-600: #6b675c;
+  --ink-400: #a39c8c;
+
+  /* Gold — Premium */
+  --gold-500: #d9b36a;
+  --gold-900: #4a3212;
+
+  /* Semantik — nie Rot */
+  --success-500: #3e6553;
+  --amber-500: #c4956a;
+  --clay-500: #b07060;
+
+  /* Semantische Aliase */
+  --color-primary: #2e4b3f;
+  --color-primary-deep: #1f332b;
+  --color-accent: #c67e5c;
+  --color-accent-deep: #8a4e33;
+
+  --color-surface: #faf8f3;
+  --color-surface-subtle: #f2ede2;
+
+  --color-ink: #2a2721;
+  --color-ink-muted: #6b675c;
+  --color-ink-subtle: #a39c8c;
+
+  --color-border: #eae4d8;
+
+  --color-success: #3e6553;
+  --color-warning: #c4956a;
+  --color-error: #b07060;
+  --color-info: #3e6553;
+
+  /* Eltern-Farbkodierung — immer symmetrisch. Wald = A (du), Aprikose = B,
+     Schiefer = C (Patchwork, in personen.css). Dritte bleiben neutral Sand. */
+  --parent-a: var(--wald-700);
+  --parent-a-soft: var(--wald-100);
+  --parent-b: var(--apricot-700);
+  --parent-b-soft: var(--apricot-100);
+
+  /* Komponenten-Aliase */
+  --surface-card: var(--sand-0);
+  --surface-input: var(--sand-0);
+  --text-body: var(--ink-900);
+  --text-muted: var(--ink-600);
+  --text-subtle: var(--ink-400);
+  --text-on-primary: var(--sand-0);
+  --backdrop: rgba(42, 39, 33, 0.32);
+  --premium-gradient: linear-gradient(120deg, #c67e5c, #d9b36a); /* @kind other */
+  /* Flächen-Verlauf neben Premium: die Status-Hero-Karte */
+  --hero-gradient: linear-gradient(150deg, #2e4b3f 0%, #41705b 100%); /* @kind other */
+}
