@@ -196,16 +196,9 @@ body {
   border: 1px solid rgba(244, 239, 230, 0.28);
 }
 
-/* Store-Badges: noch keine Ziele — bewusst keine Links, gleiche Optik. */
 .btn.badge {
   height: 50px;
   font-size: 14px;
-  cursor: default;
-}
-
-.btn.badge:hover {
-  transform: none;
-  box-shadow: none;
 }
 
 /* ---- Hero ---- */
@@ -1125,20 +1118,6 @@ section {
 
   .site-nav {
     padding: 18px 26px;
-  }
-}
-
-@media (max-width: 620px) {
-  .site-nav .links {
-    display: none;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  section {
-    padding: 100px 0;
   }
 }
 

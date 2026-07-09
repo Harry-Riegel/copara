@@ -18,7 +18,8 @@ ssh -i $key -o BatchMode=yes $server "rm -rf $webroot.new && mkdir -p $webroot.n
 scp -i $key -q -r dist/* "${server}:$webroot.new/"
 
 Write-Host '3/3  Umschalten ...'
-ssh -i $key -o BatchMode=yes $server "rm -rf $webroot.old && mv $webroot $webroot.old && mv $webroot.new $webroot && rm -rf $webroot.old"
+# scp von Windows legt Verzeichnisse mit 700 an - nginx braucht 755/644.
+ssh -i $key -o BatchMode=yes $server "find $webroot.new -type d -exec chmod 755 {} + && find $webroot.new -type f -exec chmod 644 {} + && rm -rf $webroot.old && mv $webroot $webroot.old && mv $webroot.new $webroot && rm -rf $webroot.old"
 
 $status = curl.exe -s -o NUL -w '%{http_code}' https://copara.co/
 Write-Host "Fertig - https://copara.co antwortet mit HTTP $status"

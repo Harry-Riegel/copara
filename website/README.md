@@ -68,11 +68,9 @@ powershell -ExecutionPolicy Bypass -File deploy.ps1
 
 ## Offene Punkte
 
-- **Store-Badges** im Footer sind bewusst keine Links — die Apps sind noch
-  nicht veröffentlicht. Sobald es Store-URLs gibt: die beiden `<span
-class="btn … badge">` in `index.html` in `<a href="…">` umwandeln.
-- **Footer „Haltung"**: „Warum kein Rot", „Bill Eddy & BIFF" und „Über uns"
-  haben noch keine Zielseiten und sind daher nicht verlinkt.
+- **Store-Badges** und die Footer-Links „Warum kein Rot", „Bill Eddy & BIFF",
+  „Über uns" zeigen wie im Design-Original noch auf `#` — Ziele folgen mit
+  App-Launch bzw. eigenen Seiten.
 - **Rechtstexte** sind Platzhalter aus dem Mockup — finale Texte kommen von
   der Kanzlei vor Launch (Hinweis steht auf der Seite).
 - **OG-Bild**: Es gibt bewusst kein `og:image` — im Design-System existiert
