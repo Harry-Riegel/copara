@@ -3,12 +3,15 @@ import { initCalendarDemo } from './modules/calendar-demo';
 import { initMobileMenu } from './modules/mobile-menu';
 import { initNav } from './modules/nav';
 import { initReveal } from './modules/reveal';
-import { initSignature } from './modules/signature';
+import { initScenes } from './modules/scenes';
 import { initStory } from './modules/story';
+
+// Gate für Szenen-Startzustände: ohne JS bleibt alles statisch sichtbar.
+document.documentElement.classList.add('js');
 
 initReveal();
 initNav();
 initMobileMenu();
-initSignature();
+initScenes();
 initStory();
 initCalendarDemo();
