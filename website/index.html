@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Copara — Der ruhige Sorgerechts-Kalender für getrennte Eltern</title>
     <meta
       name="description"
@@ -80,7 +80,40 @@
         <a href="#familie">Familie</a>
         <a href="#premium">Premium</a>
       </div>
+      <!-- Mobil: Menü als natives Popover (Light-Dismiss, Esc, Top-Layer — ohne JS-Framework) -->
+      <button class="nav-toggle" popovertarget="mobile-menu" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path
+            d="M3 7.5h18M3 16.5h18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </nav>
+
+    <div id="mobile-menu" popover class="mobile-menu">
+      <div class="mobile-menu__top">
+        <span class="mobile-menu__label">Menü</span>
+        <button class="nav-toggle" popovertarget="mobile-menu" aria-label="Menü schließen">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path
+              d="M5 5l14 14M19 5L5 19"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav aria-label="Mobiles Menü">
+        <a href="#how">Wie es wirkt</a>
+        <a href="#kalender">Kalender</a>
+        <a href="#familie">Familie</a>
+        <a href="#premium">Premium</a>
+      </nav>
+    </div>
 
     <main id="main">
       <!-- Hero -->

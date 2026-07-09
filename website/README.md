@@ -33,6 +33,20 @@ Fallback:
   (Headlines) / `pretty` (Fließtext), logische Properties, Media-Query-
   Range-Syntax (`width <= 900px`).
 
+## Mobile
+
+- **Menü über die native Popover-API** (`popover`/`popovertarget`): Top-Layer,
+  Light-Dismiss, Esc — animiert per `@starting-style` +
+  `transition-behavior: allow-discrete`. Anker-Navigation schließt das Menü
+  und scrollt sanft (`src/modules/mobile-menu.ts`).
+- **`svh`-Viewport-Units** für Hero, Story-Bühne und 404 — kein Springen
+  durch die ein-/ausfahrende Browserleiste; `overflow-x: clip` statt
+  `hidden` (bricht `position: sticky`/Scroll-Timelines nicht).
+- Nav auf Mobil als Glas-Leiste statt `mix-blend-mode` (lesbar + günstiger
+  beim Scrollen), Safe-Area-Insets (`env()`, `viewport-fit=cover`),
+  `touch-action: manipulation` + `:active`-Feedback, 44-px-Touch-Ziele,
+  CTA/Footer mit `flex-wrap`, engere Abstände unter 600 px.
+
 ## Seiten
 
 | Seite              | Inhalt                                                                                                                   |

@@ -36,7 +36,23 @@ body {
   color: var(--sand);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip statt hidden: schneidet ab, ohne einen Scroll-Container zu erzeugen —
+     position: sticky und Scroll-Timelines bleiben ungestört. */
+  overflow-x: clip;
+}
+
+/* Ruhiges Touch-Verhalten: kein Doppeltipp-Zoom auf Bedienelementen,
+   kein graues Tap-Highlight — Feedback kommt über :active. */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.btn:active,
+.site-nav .links a:active,
+.fcol a:active {
+  opacity: var(--opacity-pressed, 0.8);
 }
 
 ::selection {
@@ -155,7 +171,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 48px;
+  padding: 22px max(48px, env(safe-area-inset-right)) 22px max(48px, env(safe-area-inset-left));
   mix-blend-mode: difference;
   transition:
     background 0.4s ease,
@@ -207,6 +223,96 @@ body {
   width: auto;
 }
 
+/* Menü-Knopf (nur mobil) — 44px-Touch-Ziel */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: -10px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---- Mobiles Menü: natives Popover im Top-Layer.
+   Light-Dismiss + Esc kommen von der Plattform; Öffnen/Schließen animiert
+   über @starting-style + transition-behavior: allow-discrete.
+   Browser ohne Popover-API lassen das Menü einfach zu (display: none). ---- */
+.mobile-menu {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  border: none;
+  border-radius: 0 0 32px 32px;
+  background: #0b120e;
+  color: var(--sand);
+  padding: 14px max(26px, env(safe-area-inset-right)) 30px max(26px, env(safe-area-inset-left));
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  translate: 0 -14px;
+  transition:
+    opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    display 0.32s allow-discrete,
+    overlay 0.32s allow-discrete;
+
+  &:popover-open {
+    display: flex;
+    opacity: 1;
+    translate: none;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 -14px;
+    }
+  }
+
+  &::backdrop {
+    background: color-mix(in srgb, #0b120e 45%, transparent);
+  }
+
+  & .mobile-menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 10px;
+  }
+
+  & .mobile-menu__label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  & .nav-toggle {
+    display: flex;
+    color: var(--sand);
+  }
+
+  & nav a {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 27px;
+    letter-spacing: -0.02em;
+    color: var(--sand);
+    text-decoration: none;
+    padding-block: 14px;
+    border-block-start: 1px solid color-mix(in srgb, var(--sand) 12%, transparent);
+
+    &:active {
+      color: var(--apri);
+    }
+  }
+}
+
 /* ---- Buttons ---- */
 .btn {
   display: inline-flex;
@@ -249,6 +355,7 @@ body {
 /* ---- Hero ---- */
 .hero {
   min-height: 100vh;
+  min-height: 100svh; /* stabil bei ein-/ausfahrender Mobil-Browserleiste */
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
@@ -279,6 +386,7 @@ body {
     margin-block-start: 40px;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap; /* schmale Viewports: Buttons untereinander statt Überlauf */
     gap: 14px;
   }
 }
@@ -588,6 +696,7 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh; /* Story-Zeilen nie hinter der Mobil-Toolbar */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1239,6 +1348,8 @@ section {
 .footer-meta {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
   padding-block-start: 26px;
   opacity: 0.5;
   font-size: 13px;
@@ -1315,6 +1426,7 @@ section {
 /* ---- 404 ---- */
 .nf {
   min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
   text-align: center;
@@ -1368,11 +1480,67 @@ section {
   }
 
   .wrap {
-    padding-inline: 26px;
+    padding-inline: max(26px, env(safe-area-inset-left)) max(26px, env(safe-area-inset-right));
   }
 
+  /* Mobil: Link-Zeile → Menü-Knopf; feste Leiste immer lesbar auf Glas
+     (mix-blend-mode auf Scroll-Flächen ist auf Phones teuer und flackert). */
   .site-nav {
-    padding: 18px 26px;
+    padding: 12px max(16px, env(safe-area-inset-right)) 12px max(20px, env(safe-area-inset-left));
+    mix-blend-mode: normal;
+    background: color-mix(in srgb, #0b120e 78%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+
+    & .links {
+      display: none;
+    }
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+@media (width <= 600px) {
+  section {
+    padding-block: 96px;
+  }
+
+  .sand-sec {
+    border-radius: 32px 32px 0 0;
+  }
+
+  .hero {
+    padding-block-start: 110px;
+    align-items: start;
+  }
+
+  .quote {
+    padding-block: 80px;
+  }
+
+  .site-footer {
+    padding-block: 90px 56px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .fcol a,
+  .fcol span {
+    padding-block: 4px; /* bequemere Touch-Ziele */
+  }
+
+  .prem {
+    padding: 44px 24px;
+    border-radius: 32px;
+  }
+
+  .net {
+    height: 320px;
   }
 }
 
@@ -1398,6 +1566,10 @@ section {
   .btn:hover {
     transition: none;
     translate: none;
+  }
+
+  .mobile-menu {
+    transition: none;
   }
 
   /* Story und Punkt: direkt die verbundene Endpose */
