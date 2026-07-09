@@ -78,6 +78,7 @@
         <a href="#how">Wie es wirkt</a>
         <a href="#kalender">Kalender</a>
         <a href="#familie">Familie</a>
+        <a href="#sicherheit">Sicherheit</a>
         <a href="#premium">Premium</a>
       </div>
       <!-- Mobil: Menü als natives Popover (Light-Dismiss, Esc, Top-Layer — ohne JS-Framework) -->
@@ -111,6 +112,7 @@
         <a href="#how">Wie es wirkt</a>
         <a href="#kalender">Kalender</a>
         <a href="#familie">Familie</a>
+        <a href="#sicherheit">Sicherheit</a>
         <a href="#premium">Premium</a>
       </nav>
     </div>
@@ -380,6 +382,59 @@
         </div>
       </section>
 
+      <!-- Sicherheit: Ende-zu-Ende-Verschlüsselung mit Familien-Schlüssel.
+           Die Grafik macht E2EE fühlbar: lesbarer Termin → Familien-Schlüssel →
+           Ciphertext. Beim Scrollen verschlüsselt sich der Inhalt sichtbar. -->
+      <section id="sicherheit" class="ink-sec">
+        <div class="wrap split">
+          <div class="rise">
+            <p class="eyebrow">Euer Familien-Schlüssel</p>
+            <h2 class="lead display">
+              Wir können eure<br />Daten nicht lesen<span class="dot">.</span>
+            </h2>
+            <p class="measure">
+              Technisch unmöglich — nicht nur versprochen. Jede Familie bekommt ihren eigenen
+              Schlüssel. Er entsteht auf euren Geräten und verlässt sie nie; auf unseren Servern
+              liegt nur unlesbarer Ciphertext.
+            </p>
+            <p class="measure">
+              Kommt jemand dazu, wandert der Schlüssel sicher über euren Einladungs-Code mit — geht
+              jemand, wird neu verschlüsselt.
+              <span class="mono-note">Ende-zu-Ende-verschlüsselt · MLS, RFC 9420</span>
+            </p>
+          </div>
+          <div class="rise stage">
+            <div class="vault" data-scene aria-hidden="true">
+              <div class="vault-card vault-card--family">
+                <div class="vault-label">Was eure Familie sieht</div>
+                <div class="vault-row">
+                  <i class="pc-dot pc-dot--wald"></i>Übergabe Schule · Mo, 8:00
+                </div>
+                <div class="vault-row">
+                  <i class="pc-dot pc-dot--apri"></i>Ferien-Tausch bestätigt
+                </div>
+              </div>
+              <div class="vault-flow">
+                <span class="vault-key">
+                  <svg viewBox="0 0 40 24" aria-hidden="true">
+                    <circle cx="15" cy="12" r="8.5" fill="none" stroke="#2E4B3F" stroke-width="2" />
+                    <circle cx="25" cy="12" r="8.5" fill="none" stroke="#C67E5C" stroke-width="2" />
+                    <circle cx="20" cy="12" r="2.6" fill="#C67E5C" />
+                  </svg>
+                  Familien-Schlüssel
+                </span>
+              </div>
+              <div class="vault-card vault-card--server">
+                <div class="vault-label">Was auf unseren Servern liegt</div>
+                <div class="vault-cipher">9f4a·xT0q·58Lm·c2Vw·kE71</div>
+                <div class="vault-cipher">M3kz·qB81·jj7R·e6Ny·04Xp</div>
+                <div class="vault-note">— für uns unlesbar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Drei Schritte -->
       <section id="how">
         <div class="wrap">
@@ -537,6 +592,7 @@
           <a href="#status">Status</a>
           <a href="#kalender">Kalender</a>
           <a href="#familie">Familie</a>
+          <a href="#sicherheit">Sicherheit</a>
           <a href="#premium">Premium</a>
         </nav>
         <nav class="fcol" aria-label="Haltung">
