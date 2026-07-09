@@ -13,6 +13,26 @@ produktionsreife, statische Website.
   (`src/styles/tokens/`), Fonts self-hosted als woff2 (`public/fonts/`)
 - Kein externes Asset, kein Tracking, kein Cookie — nichts verlässt die Seite
 
+## Modernes CSS
+
+Das Stylesheet nutzt die aktuellen Plattform-Features, jeweils mit sauberem
+Fallback:
+
+- **Scroll-driven Animations**: Reveal (`.rise`) und die komplette
+  Scroll-Story laufen in Chrome/Edge und Safari 26+ rein in CSS
+  (`animation-timeline: view()`, benannte `view-timeline: --story` mit
+  `animation-range: contain`). Firefox stable (Feature noch hinter Flag,
+  Interop-2026-Ziel) bekommt per `@supports not (…)` den bisherigen
+  JS-Fallback (`reveal.ts`, `story.ts`) — gleicher Look.
+- **Cascade Layers** (`@layer tokens, site`) — Tokens und Site-Styles sauber
+  geschichtet, natives **CSS-Nesting** durchgehend.
+- **Cross-Document View Transitions** (`@view-transition`) — sanfter
+  Übergang zwischen Index und Rechtliches.
+- Individuelle Transform-Properties (`translate`/`scale` statt `transform`),
+  `color-mix()` für Alpha-Abstufungen der Marken-Farben, `text-wrap: balance`
+  (Headlines) / `pretty` (Fließtext), logische Properties, Media-Query-
+  Range-Syntax (`width <= 900px`).
+
 ## Seiten
 
 | Seite              | Inhalt                                                                                                                   |

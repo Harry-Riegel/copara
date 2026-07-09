@@ -3,9 +3,13 @@ import { backOut, easeInOut, easeOut, lerp, prefersReducedMotion, segment } from
 /**
  * Scroll-Storytelling: die Signatur-Geschichte, gescrubbt über den
  * Scroll-Fortschritt der 340vh-Sektion. Drei Zeilen blenden passend ein.
- * Reduzierte Bewegung: direkt die Endpose mit letzter Zeile.
+ * Nur Fallback: Browser mit Scroll-driven Animations fahren die Geschichte
+ * rein in CSS (View-Timeline --story in site.css). Reduzierte Bewegung:
+ * direkt die Endpose mit letzter Zeile (übernimmt dort ebenfalls CSS).
  */
 export function initStory(): void {
+  if (CSS.supports('animation-timeline: view()')) return;
+
   const section = document.querySelector<HTMLElement>('[data-story]');
   const l = document.querySelector<HTMLElement>('[data-story-el="l"]');
   const r = document.querySelector<HTMLElement>('[data-story-el="r"]');
@@ -43,9 +47,9 @@ export function initStory(): void {
       glow = segment(p, 0.85, 0.95);
     }
 
-    l.style.transform = `translate3d(${-x}px,0,0)`;
-    r.style.transform = `translate3d(${x}px,0,0)`;
-    d.style.transform = `scale(${Math.max(0, dot)})`;
+    l.style.translate = `${-x}px 0`;
+    r.style.translate = `${x}px 0`;
+    d.style.scale = `${Math.max(0, dot)}`;
     d.style.opacity = dot <= 0.02 ? '0' : '1';
     const blur = 10 + 30 * dot + 46 * glow;
     const alpha = Math.min(1, 0.3 + 0.4 * dot + 0.3 * glow);

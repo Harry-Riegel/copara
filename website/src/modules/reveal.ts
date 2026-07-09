@@ -1,6 +1,10 @@
 /** Sanftes Aufsteigen der Sektionen beim Scrollen (.rise → .in).
- *  Bei reduzierter Bewegung sind .rise-Elemente per CSS bereits sichtbar. */
+ *  Nur Fallback: Browser mit Scroll-driven Animations (Chrome, Safari 26+)
+ *  erledigen das rein in CSS (site.css, @supports-Block). Bei reduzierter
+ *  Bewegung sind .rise-Elemente per CSS bereits sichtbar. */
 export function initReveal(): void {
+  if (CSS.supports('animation-timeline: view()')) return;
+
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {

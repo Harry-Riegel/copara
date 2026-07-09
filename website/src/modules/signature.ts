@@ -13,9 +13,9 @@ export function initSignature(): void {
   if (!l || !r || !d) return;
 
   const paint = (lx: number, rx: number, sx: number, sy: number, glow: number): void => {
-    l.style.transform = `translate3d(${lx}px,0,0)`;
-    r.style.transform = `translate3d(${rx}px,0,0)`;
-    d.style.transform = `scale(${Math.max(0, sx)},${Math.max(0, sy)})`;
+    l.style.translate = `${lx}px 0`;
+    r.style.translate = `${rx}px 0`;
+    d.style.scale = `${Math.max(0, sx)} ${Math.max(0, sy)}`;
     d.style.opacity = sx <= 0.02 ? '0' : '1';
     const blur = 4 + 9 * sy + 18 * glow;
     const alpha = Math.min(1, 0.25 + 0.45 * sy + 0.5 * glow);

@@ -1,11 +1,13 @@
 /* Copara Website — Style-Einstieg.
-   Reihenfolge: Fonts → Design-System-Tokens (unverändert aus dem Handoff) → Site-Styles. */
+   Cascade Layers: Design-System-Tokens (unverändert aus dem Handoff) → Site-Styles. */
 
-@import './tokens/fonts.css';
-@import './tokens/colors.css';
-@import './tokens/status-ampel.css';
-@import './tokens/personen.css';
-@import './tokens/typography.css';
-@import './tokens/spacing.css';
-@import './tokens/effects.css';
-@import './site.css';
+@layer tokens, site;
+
+@import './tokens/fonts.css' layer(tokens);
+@import './tokens/colors.css' layer(tokens);
+@import './tokens/status-ampel.css' layer(tokens);
+@import './tokens/personen.css' layer(tokens);
+@import './tokens/typography.css' layer(tokens);
+@import './tokens/spacing.css' layer(tokens);
+@import './tokens/effects.css' layer(tokens);
+@import './site.css' layer(site);
