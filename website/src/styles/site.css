@@ -345,11 +345,70 @@ button {
     color: var(--sand);
     border: 1px solid color-mix(in srgb, var(--sand) 28%, transparent);
   }
+}
 
-  &.badge {
-    height: 50px;
-    font-size: 14px;
+/* ---- Store-Badges: der klassische App-Store-/Play-Knopf als Grafik.
+   Schwarz mit Hairline, Logo + zweizeiligem Text — die Primär-Aktion
+   der Seite: die App installieren. */
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 58px;
+  padding-inline: 18px 22px;
+  border-radius: 13px;
+  background: #000;
+  border: 1px solid color-mix(in srgb, var(--sand) 32%, transparent);
+  color: var(--sand-white);
+  text-decoration: none;
+  transition:
+    translate 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  &:hover {
+    translate: 0 -3px;
+    box-shadow: 0 16px 36px rgb(0 0 0 / 35%);
+    border-color: color-mix(in srgb, var(--sand) 60%, transparent);
   }
+
+  &:active {
+    opacity: var(--opacity-pressed, 0.8);
+  }
+
+  & svg {
+    height: 26px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  & .store-badge__text {
+    display: block;
+    line-height: 1;
+
+    & small {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    & strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-block-start: 3px;
+    }
+  }
+}
+
+.cta-note {
+  margin-block-start: 16px;
+  font-size: 13.5px;
+  opacity: 0.55;
 }
 
 /* ---- Hero ---- */
