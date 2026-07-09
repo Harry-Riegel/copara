@@ -100,6 +100,24 @@ Neues Release deployen:
 powershell -ExecutionPolicy Bypass -File deploy.ps1
 ```
 
+## Copy-Leitplanken (hart)
+
+Jede Textänderung gegen diese Fragen prüfen — das DS-Prinzip „Calm, specific,
+never blaming" gilt wörtlich:
+
+1. **Keine versteckten Unterstellungen über die Nutzer.** Copy darf nie
+   implizieren, dass die Leser sich falsch verhalten (haben). Anweisungen wie
+   „ruhig X tun" unterstellen Eskalation → neutral den App-Schritt benennen
+   („Anfrage stellen", nicht „Ruhig anfragen").
+2. **Keine Zustands-Etiketten für die Leser.** Nicht „Gestresste Eltern …" —
+   einfach „Eltern …". Ruhe beschreibt immer das **Produkt**, nie den
+   (unterstellten) Zustand der Nutzer.
+3. **Keine mehrdeutigen Begriffe.** „Familie gründen" kann „Kinder bekommen"
+   heißen → App-Sprache verwenden („Familie anlegen").
+4. Erlaubt bleibt: das Produkt als ruhig positionieren, Testimonials (Menschen
+   sprechen über sich selbst), neutrale Feature-Beschreibungen realer
+   Situationen („wenn keiner kann").
+
 ## Offene Punkte
 
 - **Store-Badges** und die Footer-Links „Warum kein Rot", „Bill Eddy & BIFF",
