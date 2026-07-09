@@ -148,16 +148,32 @@
               <div class="s-pad">
                 <div class="s-date">Dienstag, 10. Februar</div>
                 <div class="s-h1">To-Do</div>
-                <div class="ampel">
-                  <div class="ov"><b></b> Jetzt zu tun</div>
-                  <h3>Zwei Dinge<br />brauchen dich.</h3>
-                  <p>Danach ist heute nichts mehr zu tun.</p>
-                  <div class="go">Der Reihe nach antworten</div>
+                <!-- Story: zwei Anfragen beantworten, dann kippt die Ampel auf Grün. -->
+                <div class="ampel hero-ampel">
+                  <div class="a-layer a-now">
+                    <div class="ov"><b></b> Jetzt zu tun</div>
+                    <h3>Zwei Dinge<br />brauchen dich.</h3>
+                    <p>Danach ist heute nichts mehr zu tun.</p>
+                    <div class="go">Der Reihe nach antworten</div>
+                  </div>
+                  <div class="a-layer a-clear">
+                    <div class="ov"><b></b> Alles geregelt</div>
+                    <h3>Das war alles.</h3>
+                    <p>Du hast nichts übersehen. In 6 Tagen bist du wieder dran.</p>
+                  </div>
                 </div>
                 <div class="s-lbl">Was du entscheiden kannst</div>
-                <div class="s-card">
+                <div class="s-card t-card t-card--1">
                   <div class="meta"><i></i> Anfrage von Markus</div>
                   <div class="ttl">Ferien tauschen: 30. März – 3. April</div>
+                  <span class="s-check">✓</span>
+                  <span class="tap"></span>
+                </div>
+                <div class="s-card t-card t-card--2">
+                  <div class="meta"><i class="i-vote"></i> Frage an alle</div>
+                  <div class="ttl">Wer übernimmt den 28. Februar?</div>
+                  <span class="s-check">✓</span>
+                  <span class="tap"></span>
                 </div>
               </div>
             </div>
@@ -264,12 +280,13 @@
               den anderen mit.
             </p>
           </div>
+          <!-- Story: eine Frage wandert vom Kind zu Oma Anna — das Netz trägt. -->
           <div class="rise net" aria-hidden="true" data-scene>
             <div class="av big av--mf">MF</div>
             <div class="av mid av--mb">MB</div>
             <div class="av mid av--tb">TB</div>
             <div class="av mid av--lw">LW</div>
-            <div class="av mid av--oa">OA</div>
+            <div class="av mid av--oa">OA<span class="av-badge">✓</span></div>
             <svg width="100%" height="100%" viewBox="0 0 480 380" preserveAspectRatio="none">
               <g
                 stroke="#C7BCA8"
@@ -283,7 +300,11 @@
                 <path d="M232 190 L96 320" />
                 <path d="M232 190 L392 330" />
               </g>
+              <path class="net-response" d="M232 190 L392 330" pathLength="1" />
             </svg>
+            <span class="net-pulse"></span>
+            <span class="story-chip net-chip--ask">Wer holt Mia am Freitag?</span>
+            <span class="story-chip net-chip--done">Oma übernimmt.</span>
           </div>
         </div>
       </section>

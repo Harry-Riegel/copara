@@ -637,6 +637,239 @@ button {
   }
 }
 
+/* ---- Story-Elemente der Grafik-Szenen (Startzustände; die Choreografien
+   liegen im @media-Block unten — ohne Animation bleibt alles ruhig statisch). */
+
+/* Hero-Ampel mit zwei Zuständen: Blush „Jetzt zu tun" → Salbei „Alles geregelt" */
+.hero-ampel {
+  position: relative;
+  display: grid;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 26px;
+    background: linear-gradient(150deg, #b8c9b1, #9ab292);
+    opacity: 0;
+  }
+
+  & .a-layer {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  & .a-clear {
+    opacity: 0;
+    /* füllt die Höhe des Blush-Zustands — Inhalt ruhig zentriert */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & .ov {
+      color: #37493d;
+
+      & b {
+        background: #4e6b56;
+      }
+    }
+
+    & h3 {
+      color: #2f4638;
+    }
+
+    & p {
+      color: #37493d;
+    }
+  }
+}
+
+/* Hero-Screen: mit zwei Karten etwas kompakter, damit die Story in die
+   620px des Mock-Screens passt. */
+.hero .phone .s-pad {
+  padding-block-start: 52px;
+}
+
+.hero .phone .ampel {
+  padding-block: 20px;
+
+  & h3 {
+    margin-block: 12px 6px;
+  }
+
+  & .go {
+    height: 48px;
+    margin-block-start: 15px;
+  }
+}
+
+.hero .phone .s-lbl {
+  margin-block: 16px 8px;
+}
+
+.hero .phone .t-card {
+  padding-block: 13px;
+
+  &.t-card--2 {
+    margin-block-start: 8px;
+  }
+}
+
+.t-card {
+  position: relative;
+
+  & .meta i.i-vote {
+    background: #6b675c;
+  }
+
+  & .s-check {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    translate: 0 -50%;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgb(62 101 83 / 12%);
+    color: #3e6553;
+    font: 600 13px/24px var(--font-body);
+    text-align: center;
+    opacity: 0;
+  }
+
+  & .tap {
+    position: absolute;
+    right: 46px;
+    top: 50%;
+    margin-block-start: -17px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgb(42 39 33 / 14%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Schwebende Erzähl-Pillen (Kalender-Tausch, Netz-Frage/-Zusage) */
+.story-chip {
+  position: absolute;
+  z-index: 3;
+  background: #fff;
+  color: var(--ink);
+  font: 600 11.5px/1 var(--font-body);
+  padding: 7px 12px;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgb(74 58 33 / 18%);
+  white-space: nowrap;
+  opacity: 0;
+}
+
+/* Kalender: Tausch-Tag mit Offen-Punkt und Frage-Pille */
+.d.swap-day {
+  transition: background 0.5s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 13px;
+    opacity: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--apri-deep);
+    opacity: 0;
+  }
+
+  & .swap-chip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    translate: -50% 0;
+    z-index: 3;
+    display: grid;
+    background: #fff;
+    color: var(--ink);
+    font: 600 11.5px/1 var(--font-body);
+    padding: 7px 12px;
+    border-radius: 999px;
+    box-shadow: 0 8px 28px rgb(74 58 33 / 18%);
+    white-space: nowrap;
+    opacity: 0;
+
+    & i,
+    & b {
+      grid-area: 1 / 1;
+      font-style: normal;
+      transition: opacity 0.3s ease;
+    }
+
+    & b {
+      color: #3e6553;
+      opacity: 0;
+    }
+  }
+}
+
+/* Netz: Impuls, Antwort-Linie, Zusage-Häkchen, Pillen-Positionen */
+.net-pulse {
+  position: absolute;
+  left: 48.3%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px;
+  border-radius: 50%;
+  background: var(--apri-deep);
+  box-shadow: 0 0 16px rgb(198 126 92 / 60%);
+  opacity: 0;
+  z-index: 2;
+}
+
+.net-response {
+  stroke: #4e6b56;
+  stroke-width: 2.5;
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.av-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #3e6553;
+  color: #fffdf7;
+  font: 600 12px/22px var(--font-body);
+  text-align: center;
+  box-shadow: 0 4px 12px rgb(46 75 63 / 35%);
+  opacity: 0;
+}
+
+.net-chip--ask {
+  left: calc(42% + 48px);
+  top: 116px;
+  translate: -50% 0;
+}
+
+.net-chip--done {
+  right: calc(18% + 33px);
+  bottom: 106px;
+  translate: 50% 0;
+}
+
 /* ---- Scroll-Story: die Signatur-Erzählung ----
    Modern: der 340vh-Abschnitt ist eine benannte View-Timeline, Kreise, Punkt
    und Textzeilen hängen als scroll-getriebene Keyframes daran ("contain" =
@@ -912,8 +1145,10 @@ button {
    Hero-Screen spielt zeitbasiert direkt nach dem Headline-Auftritt.
    html.js gate: ohne JavaScript bleibt alles statisch sichtbar. ---- */
 @media (prefers-reduced-motion: no-preference) {
-  /* Szene 1 — Hero-Phone: die App wacht auf. Telefon setzt auf, dann baut
-     sich der Screen in Lese-Reihenfolge auf, zuletzt atmet der Status-Punkt. */
+  /* Szene 1 — Hero-Phone, die Kern-Story der App als Sequenz:
+     „Zwei Dinge brauchen dich." → Tipp auf Markus' Anfrage → bestätigt →
+     Tipp auf die Abstimmung → bestätigt → die Ampel kippt auf Salbei:
+     „Das war alles." Danach atmet nur noch der Status-Punkt. */
   .hero .phone-stage {
     & .phone {
       animation: phone-settle 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
@@ -928,7 +1163,7 @@ button {
       animation: ampel-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.25s both;
     }
 
-    & .ampel .go {
+    & .a-now .go {
       animation: scene-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
     }
 
@@ -936,12 +1171,59 @@ button {
       animation: scene-fade 0.5s ease 1.85s both;
     }
 
-    & .s-card {
-      animation: scene-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.95s both;
+    /* Akt 1: zwei offene Anfragen treffen ein */
+    & .t-card--1 {
+      animation:
+        scene-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.95s both,
+        card-confirm 0.9s cubic-bezier(0.16, 1, 0.3, 1) 3.45s forwards;
     }
 
-    & .ampel .ov b {
-      animation: dot-breath 4.2s ease-in-out 2.8s infinite;
+    & .t-card--2 {
+      animation:
+        scene-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 2.15s both,
+        card-confirm 0.9s cubic-bezier(0.16, 1, 0.3, 1) 4.75s forwards;
+    }
+
+    /* Akt 2: antippen, bestätigen — erst Markus' Ferien, dann die Abstimmung */
+    & .t-card--1 .tap {
+      animation: tap-ping 0.6s ease 3.1s both;
+    }
+
+    & .t-card--1 .s-check {
+      animation: check-pop 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 3.5s both;
+    }
+
+    & .t-card--1 .meta i {
+      animation: dot-confirm 0.4s ease 3.5s forwards;
+    }
+
+    & .t-card--2 .tap {
+      animation: tap-ping 0.6s ease 4.4s both;
+    }
+
+    & .t-card--2 .s-check {
+      animation: check-pop 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 4.8s both;
+    }
+
+    & .t-card--2 .meta i {
+      animation: dot-confirm 0.4s ease 4.8s forwards;
+    }
+
+    /* Akt 3: die Ampel löst auf — Blush wird Salbei, „Das war alles." */
+    & .hero-ampel::before {
+      animation: scene-fade 1.1s ease 5.8s forwards;
+    }
+
+    & .a-now {
+      animation: layer-out 0.7s cubic-bezier(0.16, 1, 0.3, 1) 5.8s forwards;
+    }
+
+    & .a-clear {
+      animation: layer-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 6.15s forwards;
+    }
+
+    & .a-clear .ov b {
+      animation: dot-breath 4.2s ease-in-out 7.4s infinite;
     }
   }
 
@@ -987,10 +1269,49 @@ button {
     & .legend {
       animation: scene-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both;
     }
+
+    /* Story: über Freitag, dem 13. steht Markus' Tausch-Frage — nach dem
+       Tipp wechselt der Tag zu Lisa (JS setzt .swapped, Farben in
+       calendar-demo.ts), die Frage wird zu „Getauscht." und zieht sich zurück. */
+    & .swap-chip {
+      animation: chip-in 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 1.9s both;
+    }
+
+    & .swap-day::after {
+      animation: offen-pulse 1.5s ease-in-out 1.9s infinite;
+    }
+
+    & .swap-day::before {
+      animation: cell-tap 0.6s ease 2.8s both;
+    }
+
+    & .swap-day.swapped {
+      animation: swap-pop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+
+      &::after {
+        animation: none;
+        opacity: 0;
+      }
+
+      & .swap-chip {
+        animation: chip-out 0.6s ease 1.4s forwards;
+
+        & i {
+          opacity: 0;
+        }
+
+        & b {
+          opacity: 1;
+        }
+      }
+    }
   }
 
-  /* Szene 4 — Systemik: das Kind erscheint im Zentrum, der Kreis der
-     Fürsorge wächst nach außen, die Erwachsenen treten an ihre Plätze. */
+  /* Szene 4 — Systemik, die Story des Netzes: das Kind erscheint im
+     Zentrum, der Kreis der Fürsorge wächst, die Erwachsenen treten an ihre
+     Plätze. Dann: „Wer holt Mia am Freitag?" — die Frage wandert als Impuls
+     die Linie entlang zu Oma Anna, Oma sagt zu (Häkchen, feste Verbindung),
+     „Oma übernimmt." Das Netz trägt. */
   .js .net[data-scene]:not(.on) {
     & .av {
       opacity: 0;
@@ -1011,19 +1332,48 @@ button {
     }
 
     & .av--mb {
-      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.75s both;
+      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.7s both;
     }
 
     & .av--tb {
-      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.9s both;
+      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.85s both;
     }
 
     & .av--lw {
-      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 1.05s both;
+      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 1s both;
     }
 
     & .av--oa {
-      animation: av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 1.2s both;
+      animation:
+        av-in 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 1.15s both,
+        oa-respond 0.7s cubic-bezier(0.16, 1, 0.3, 1) 3.2s forwards;
+    }
+
+    /* Akt 1: die Frage steht im Raum */
+    & .net-chip--ask {
+      animation:
+        chip-in 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 1.6s both,
+        chip-out 0.5s ease 3.5s forwards;
+    }
+
+    /* Akt 2: der Impuls wandert vom Kind zu Oma */
+    & .net-pulse {
+      animation: pulse-travel 1s cubic-bezier(0.45, 0, 0.55, 1) 2.3s both;
+    }
+
+    /* Akt 3: Oma sagt zu — feste Verbindung, Häkchen, Bestätigung */
+    & .net-response {
+      animation: line-draw 0.55s ease 3.15s forwards;
+    }
+
+    & .av--oa .av-badge {
+      animation: check-pop 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 3.35s both;
+    }
+
+    & .net-chip--done {
+      animation:
+        chip-in 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) 3.65s both,
+        chip-out 0.6s ease 5.8s forwards;
     }
   }
 }
@@ -1132,6 +1482,187 @@ button {
 
   to {
     clip-path: circle(120% at 50% 50%);
+  }
+}
+
+/* ---- Story-Keyframes ---- */
+@keyframes tap-ping {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+
+  35% {
+    opacity: 0.85;
+    scale: 1;
+  }
+
+  100% {
+    opacity: 0;
+    scale: 1.5;
+  }
+}
+
+@keyframes card-confirm {
+  0% {
+    scale: 1;
+  }
+
+  22% {
+    scale: 0.97;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 0.62;
+  }
+}
+
+@keyframes check-pop {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+
+  70% {
+    scale: 1.12;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes dot-confirm {
+  to {
+    background: #3e6553;
+  }
+}
+
+@keyframes layer-out {
+  to {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+}
+
+@keyframes layer-in {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+
+  to {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes chip-out {
+  to {
+    opacity: 0;
+    scale: 0.92;
+  }
+}
+
+@keyframes offen-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes cell-tap {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgb(198 126 92 / 60%);
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 0 12px rgb(198 126 92 / 0%);
+  }
+}
+
+@keyframes swap-pop {
+  0% {
+    scale: 1;
+  }
+
+  45% {
+    scale: 1.08;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes pulse-travel {
+  0% {
+    left: 48.3%;
+    top: 50%;
+    opacity: 0;
+    scale: 0.6;
+  }
+
+  14% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  86% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 81.7%;
+    top: 86.8%;
+    opacity: 0;
+    scale: 0.7;
+  }
+}
+
+@keyframes line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes oa-respond {
+  0% {
+    scale: 1;
+  }
+
+  45% {
+    scale: 1.12;
+    box-shadow:
+      0 10px 30px rgb(0 0 0 / 18%),
+      0 0 0 6px rgb(78 107 86 / 25%);
+  }
+
+  100% {
+    scale: 1;
+    box-shadow:
+      0 10px 30px rgb(0 0 0 / 18%),
+      0 0 0 3px rgb(78 107 86 / 35%);
   }
 }
 
