@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Sand & Ink — Neutrale" subtitle="Warme Bühne, warmes Text-Trio — kein Weiß, kein Schwarz" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); }
+  .wrap { padding: 22px 28px; display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; gap: 10px; }
+  .sw { flex: 1; height: 62px; border-radius: 12px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px 10px; box-sizing: border-box; }
+  .n { font-size: 11px; font-weight: 600; }
+  .h { font-size: 10px; opacity: .8; font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+    <div class="sw" style="background:var(--sand-0);border:1px solid var(--sand-200);color:var(--ink-900)"><span class="n">sand-0 · Karte</span><span class="h">#FFFFFF</span></div>
+    <div class="sw" style="background:var(--sand-50);border:1px solid var(--sand-200);color:var(--ink-900)"><span class="n">sand-50 · Screen</span><span class="h">#FAF8F3</span></div>
+    <div class="sw" style="background:var(--sand-100);color:var(--ink-900)"><span class="n">sand-100 · Well</span><span class="h">#F2EDE2</span></div>
+    <div class="sw" style="background:var(--sand-200);color:var(--ink-900)"><span class="n">sand-200 · Hairline</span><span class="h">#EAE4D8</span></div>
+  </div>
+  <div class="row">
+    <div class="sw" style="background:var(--ink-900);color:#fff"><span class="n">ink-900 · Text</span><span class="h">#2A2721</span></div>
+    <div class="sw" style="background:var(--ink-600);color:#fff"><span class="n">ink-600 · Muted</span><span class="h">#6B675C</span></div>
+    <div class="sw" style="background:var(--ink-400);color:#fff"><span class="n">ink-400 · Subtle</span><span class="h">#A39C8C</span></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* Copara — Status-Ampel-Tokens (Kernsystem, Runde 2–3 + Farb-Update Runde 6).
+   Eine Wärme-Skala; Bedeutung trägt IMMER Wort + Punkt, die Farbe verstärkt nur.
+   Salbei = alles geregelt · Apricot hell = liegt an, nicht jetzt · Blush = jetzt wichtig.
+   Nie Alarmrot, kein Braun-Grau (der alte Clay-Verlauf ist zurückgezogen). */
+
+:root {
+  /* Jetzt wichtig — heller, warmer Blush (rosé, kein Alarmrot), weiße Schrift */
+  --status-now-500: #D08381;
+  --status-now-700: #B05B57;
+  --status-now-dot: #FFE0DC;
+  --status-now-ink: #FFFDF7;
+  --status-now-sub: rgba(255, 253, 247, 0.92);
+  --status-now-gradient: linear-gradient(150deg, #D08381, #B56561); /* @kind other */
+
+  /* Bald dran — helles Apricot (auf Basis der DS-Aprikose, tritt zurück, kein Knopf-Zwang) */
+  --status-soon-100: #F6DFC8;
+  --status-soon-200: #EFC9A8;
+  --status-soon-dot: #C98A5A;
+  --status-soon-ink: #7A4A22; /* dunkles Apricot-Braun für AA-Kontrast */
+  --status-soon-gradient: linear-gradient(150deg, #F6DFC8, #EFC9A8); /* @kind other */
+
+  /* Alles geregelt — Salbei, dunkle Schrift auf hellem Grund (Entwarnung) */
+  --status-clear-gradient: linear-gradient(150deg, #B8C9B1, #9AB292); /* @kind other */
+  --status-clear-dot: #4E6B56;
+  --status-clear-ink: #2F4638;
+  --status-clear-sub: #37493D;
+}

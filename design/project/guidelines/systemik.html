@@ -1,0 +1,37 @@
+<!-- @dsCard group="Brand" viewport="700x240" name="Systemik & IA" subtitle="Drei Tabs — To-Do · Kalender · Familie — plus Plus & Konto. Status vor Struktur" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); color: var(--ink-900); }
+  .wrap { padding: 20px 28px; display: flex; gap: 22px; align-items: center; }
+  .lead { flex: 1; }
+  .lead h4 { margin: 0 0 8px; font-family: var(--font-heading); font-weight: 600; font-size: 16px; }
+  .lead p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink-600); }
+  .lead .prin { font-size: 12.5px; color: var(--wald-700); font-weight: 600; margin-top: 10px; }
+  .tabs { display: flex; align-items: flex-end; gap: 10px; background: var(--sand-0); border: 1px solid var(--sand-200); border-radius: 999px; padding: 8px 12px; box-shadow: var(--shadow-card); }
+  .tab { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 58px; font-size: 11px; color: var(--ink-400); position: relative; }
+  .tab.on { color: var(--wald-700); font-weight: 600; }
+  .tab .ic { width: 24px; height: 24px; border-radius: 8px; }
+  .tab .dot { position: absolute; top: -2px; right: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--apricot-500); }
+  .fab { width: 52px; height: 52px; border-radius: 50%; background: var(--wald-700); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: var(--shadow-card); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lead">
+    <h4>Kinder im Zentrum, Erwachsene tragen</h4>
+    <p>Copara ist ein Werkzeug für ein Familiensystem, kein Kalender-Tool. Die Oberfläche beantwortet zuerst „Wo sind die Kinder? Muss ich etwas tun?“ — der Kalender ist ein Tab dahinter.</p>
+    <div class="prin">Status vor Struktur · Ein-Blick-Prinzip · Entlastung statt Eskalation</div>
+  </div>
+  <div class="tabs">
+    <div class="tab on"><span class="ic" style="background:var(--wald-100)"></span>To-Do<span class="dot"></span></div>
+    <div class="tab"><span class="ic" style="background:var(--sand-100)"></span>Kalender</div>
+    <div class="tab"><span class="ic" style="background:var(--sand-100)"></span>Familie</div>
+    <div class="fab">+</div>
+  </div>
+</div>
+</body>
+</html>

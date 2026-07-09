@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="700x240" name="Card" subtitle="Sand-Fläche, Radius 24 — flach (Hairline) oder weich erhöht (Schatten)" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); }
+  .wrap { padding: 28px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  h3 { margin: 0 0 6px; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--ink-900); }
+  p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-600); }
+  .tag { font-size: 12px; color: var(--ink-400); margin-top: 10px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { Card } = window.CoparaDesignSystem_e5ed8c;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <div className="wrap">
+      <Card elevated style={{ padding: 18 }}>
+        <h3>Weich erhöht</h3>
+        <p>Warmer Soft-Schatten, kein Rand. Für die eine Karte, die sich abheben soll.</p>
+        <div className="tag">elevated · --shadow-card</div>
+      </Card>
+      <Card style={{ padding: 18 }}>
+        <h3>Flach</h3>
+        <p>Hairline-Rand, kein Schatten. Für ruhige Listen-Stapel.</p>
+        <div className="tag">default · 1px --sand-200</div>
+      </Card>
+    </div>
+  );
+</script>
+</body>
+</html>

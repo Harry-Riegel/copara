@@ -1,0 +1,80 @@
+<!-- @dsCard group="Copara App" viewport="410x680" name="Copara App · 3-Tab-Redesign" subtitle="Klick-Prototyp — To-Do (Status-Ampel), Kalender, Familie (Patchwork), Plus-Anfrage, Konto" -->
+<!-- @startingPoint section="Copara App" subtitle="Vollständige 3-Tab-App: To-Do, Kalender, Familie, Plus, Konto" viewport="410x844" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Copara App</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--sand-100); font-family: var(--font-body); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px 0; box-sizing: border-box; }
+  #root { display: flex; align-items: center; justify-content: center; }
+
+  /* Splash / Start-Screen — die Geschichte in zwei Kreisen */
+  @keyframes cop-dock-l { from { transform: translateX(-58px) scale(0.82); opacity: 0; } to { transform: translateX(-15px) scale(1); opacity: 1; } }
+  @keyframes cop-dock-r { from { transform: translateX(58px) scale(0.82); opacity: 0; } to { transform: translateX(15px) scale(1); opacity: 1; } }
+  @keyframes cop-pop { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+  @keyframes cop-breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
+  @keyframes cop-fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes cop-out { to { opacity: 0; transform: scale(1.04); } }
+  .cop-ring-l { animation: cop-dock-l 1.3s cubic-bezier(0.16,1,0.3,1) both; }
+  .cop-ring-r { animation: cop-dock-r 1.3s cubic-bezier(0.16,1,0.3,1) both; }
+  .cop-child  { animation: cop-pop 0.7s cubic-bezier(0.34,1.4,0.5,1) 1.05s both; }
+  .cop-blob   { animation: cop-breathe 5s ease-in-out infinite alternate; }
+  .cop-fade-up { animation: cop-fade-up 0.7s cubic-bezier(0.32,0.72,0,1) both; }
+  .cop-splash-out { animation: cop-out 0.5s cubic-bezier(0.32,0.72,0,1) forwards; }
+  @keyframes cop-orbit-l {
+    0%, 22%  { transform: translate3d(-14px,0,0); }
+    48%      { transform: translate3d(-64px,0,0); }
+    74%, 88% { transform: translate3d(-39px,0,0); }
+    100%     { transform: translate3d(-14px,0,0); }
+  }
+  @keyframes cop-orbit-r {
+    0%, 22%  { transform: translate3d(14px,0,0); }
+    48%      { transform: translate3d(64px,0,0); }
+    74%, 88% { transform: translate3d(39px,0,0); }
+    100%     { transform: translate3d(14px,0,0); }
+  }
+  @keyframes cop-child2 {
+    0%, 10%  { transform: scale(0);    opacity: 0; box-shadow: 0 0 0 rgba(232,168,124,0); }
+    22%, 48% { transform: scale(0.58); opacity: 1; box-shadow: 0 0 9px rgba(232,168,124,0.4); }
+    74%, 88% { transform: scale(1);    opacity: 1; box-shadow: 0 0 18px rgba(232,168,124,0.75); }
+    100%     { transform: scale(0);    opacity: 0; box-shadow: 0 0 0 rgba(232,168,124,0); }
+  }
+  .cop-orbit-l { animation: cop-orbit-l 6.8s cubic-bezier(.62,0,.34,1) infinite; will-change: transform; }
+  .cop-orbit-r { animation: cop-orbit-r 6.8s cubic-bezier(.62,0,.34,1) infinite; will-change: transform; }
+  .cop-child2 { animation: cop-child2 6.8s cubic-bezier(.62,0,.34,1) infinite; will-change: transform, opacity; }
+  @media (prefers-reduced-motion: reduce) {
+    .cop-orbit-l { animation: none; transform: translateX(-39px); }
+    .cop-orbit-r { animation: none; transform: translateX(39px); }
+    .cop-child2 { animation: none; transform: scale(1); opacity: 1; }
+    .cop-ring-l { animation: none; transform: translateX(-15px); opacity: 1; }
+    .cop-ring-r { animation: none; transform: translateX(15px); opacity: 1; }
+    .cop-child, .cop-fade-up { animation: none; opacity: 1; transform: none; }
+    .cop-blob { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="scenarios.js"></script>
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="Splash.jsx"></script>
+<script type="text/babel" src="TodoScreen.jsx"></script>
+<script type="text/babel" src="FocusMode.jsx"></script>
+<script type="text/babel" src="OmaView.jsx"></script>
+<script type="text/babel" src="CalendarScreen.jsx"></script>
+<script type="text/babel" src="FamilyScreen.jsx"></script>
+<script type="text/babel" src="Flows.jsx"></script>
+<script type="text/babel" src="AccountScreen.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

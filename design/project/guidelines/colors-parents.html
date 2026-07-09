@@ -1,0 +1,32 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Eltern-Farbkodierung" subtitle="Wald = A · Aprikose = B · Schiefer = C (Patchwork) — immer symmetrisch, pro Kind" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); }
+  .wrap { padding: 24px 28px; display: flex; gap: 16px; }
+  .card { flex: 1; border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .dot { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; flex-shrink: 0; }
+  .role { font-size: 13px; font-weight: 600; color: var(--ink-900); }
+  .who { font-size: 12px; color: var(--ink-600); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" style="background:var(--wald-100)">
+    <span class="dot" style="background:var(--wald-100);color:var(--wald-700);border:2px solid var(--wald-500)">LW</span>
+    <div><div class="role">Wald · Elternteil A</div><div class="who">Lisa (du)</div></div>
+  </div>
+  <div class="card" style="background:var(--apricot-100)">
+    <span class="dot" style="background:var(--apricot-100);color:var(--apricot-700);border:2px solid var(--apricot-500)">MB</span>
+    <div><div class="role">Aprikose · Elternteil B</div><div class="who">Markus · Mia &amp; Felix</div></div>
+  </div>
+  <div class="card" style="background:var(--person-c-100)">
+    <span class="dot" style="background:var(--person-c-100);color:var(--person-c-700);border:2px solid var(--person-c-500)">TB</span>
+    <div><div class="role">Schiefer · Elternteil C</div><div class="who">Tom · Emma</div></div>
+  </div>
+</div>
+</body>
+</html>

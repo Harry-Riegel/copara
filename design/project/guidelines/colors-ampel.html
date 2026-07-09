@@ -1,0 +1,36 @@
+<!-- @dsCard group="Colors" viewport="700x260" name="Status-Ampel" subtitle="Eine Wärme-Skala: Salbei geregelt · Apricot bald · Blush jetzt — Bedeutung über Wort + Punkt" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); }
+  .wrap { padding: 20px 24px; display: flex; gap: 14px; }
+  .box { flex: 1; border-radius: 20px; padding: 16px 16px 18px; box-sizing: border-box; }
+  .ov { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .big { font-family: var(--font-heading); font-weight: 700; font-size: 19px; line-height: 1.25; margin: 10px 0 6px; }
+  .ctx { font-size: 12.5px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="box" style="background:var(--status-clear-gradient)">
+    <div class="ov" style="color:var(--status-clear-sub)"><span class="dot" style="background:var(--status-clear-dot)"></span>Alles geregelt</div>
+    <div class="big" style="color:var(--status-clear-ink)">Heute ist nichts zu tun.</div>
+    <div class="ctx" style="color:var(--status-clear-sub)">Mia &amp; Felix sind bei Markus, Emma bei Tom.</div>
+  </div>
+  <div class="box" style="background:var(--status-soon-gradient)">
+    <div class="ov" style="color:var(--status-soon-ink)"><span class="dot" style="background:var(--status-soon-dot)"></span>Bald dran</div>
+    <div class="big" style="color:var(--status-soon-ink)">In 6 Tagen bist du dran.</div>
+    <div class="ctx" style="color:var(--status-soon-ink)">Mo, 16. Feb, 8:00 · Übergabe Schule.</div>
+  </div>
+  <div class="box" style="background:var(--status-now-gradient)">
+    <div class="ov" style="color:var(--status-now-sub)"><span class="dot" style="background:var(--status-now-dot)"></span>Jetzt zu tun</div>
+    <div class="big" style="color:var(--status-now-ink)">Markus wartet auf deine Antwort.</div>
+    <div class="ctx" style="color:var(--status-now-sub)">Ferien-Anfrage · seit heute Morgen.</div>
+  </div>
+</div>
+</body>
+</html>

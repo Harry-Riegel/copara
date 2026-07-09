@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" fill="none" role="img" aria-label="Copara Monogramm CO">
+  <mask id="behindM">
+    <rect width="64" height="40" fill="#fff"></rect>
+    <circle cx="38.5" cy="20" r="15.5" fill="#000"></circle>
+  </mask>
+  
+  <circle cx="25.5" cy="20" r="13" stroke="#2E4B3F" stroke-width="3.4" mask="url(#behindM)"></circle>
+  <circle cx="38.5" cy="20" r="13" stroke="#C67E5C" stroke-width="3.4"></circle>
+  <circle cx="32" cy="20" r="3.5" fill="#C67E5C"></circle>
+</svg>

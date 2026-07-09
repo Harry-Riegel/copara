@@ -1,0 +1,36 @@
+<!-- @dsCard group="Brand" viewport="700x330" name="Voice — DO / DON'T" subtitle="Ruhiges Deutsch, du-Form, nie anklagend, nie eskalierend — keine Emoji" -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--sand-50); font-family: var(--font-body); color: var(--ink-900); }
+  .wrap { padding: 20px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+  .col h4 { margin: 0 0 10px; font-family: var(--font-heading); font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .do h4 { color: var(--wald-700); }
+  .dont h4 { color: var(--clay-500); }
+  .item { font-size: 13.5px; line-height: 1.45; padding: 8px 0; border-top: 1px solid var(--sand-200); }
+  .item .k { color: var(--ink-400); font-size: 11px; }
+  .badge { width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="col do">
+    <h4><span class="badge" style="background:var(--wald-500)">✓</span>So schreiben wir</h4>
+    <div class="item">„Heute ist nichts zu tun.“<div class="k">Handlungsentlastung zuerst</div></div>
+    <div class="item">„in 6 Tagen — Mo, 16. Feb, 8:00“<div class="k">relativ vor Datum</div></div>
+    <div class="item">„Später“ · „Gegenvorschlag“ · „Anfrage offen“<div class="k">Reibungswörter umdeuten</div></div>
+    <div class="item">„Noch keine Antwort. Erinnerung schicken?“<div class="k">neutral gegenüber dem Co-Elternteil</div></div>
+  </div>
+  <div class="col dont">
+    <h4><span class="badge" style="background:var(--clay-500)">×</span>So nicht</h4>
+    <div class="item">„Fehler! Pending Request“<div class="k">Alarm, Englisch, Kürzel</div></div>
+    <div class="item">„Markus hat schon wieder nicht geantwortet.“<div class="k">anklagend, editorialisiert</div></div>
+    <div class="item">„Ablehnen“ · „Konfliktlösung“ · 🎉<div class="k">Urteil, Therapie-Sprache, Emoji</div></div>
+    <div class="item">„DSGVO-konform · EU-Server“ als Headline<div class="k">Infrastruktur statt Schutz</div></div>
+  </div>
+</div>
+</body>
+</html>
